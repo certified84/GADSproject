@@ -84,16 +84,19 @@ public class SubmissionActivity extends AppCompatActivity implements View.OnClic
         eAddress = emailAddress.getText().toString();
         pLink = projectLink.getText().toString();
 
-        Call<Submit> call = ApiClient.submitProjectApi().submitProject(fName, lName, eAddress, pLink);
+        Call<Void> call = ApiClient.submitProjectApi().submitProject(fName, lName, eAddress, pLink);
 
         progressBar.setVisibility(View.VISIBLE);
 
         Log.d(TAG, "onResponse: Input: \nFirst name: " + fName + "\nLast name: " +
                 lName + "\nEmail: " + eAddress + "\nProject link: " + pLink);
 
-        call.enqueue(new Callback<Submit>() {
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Submit> call, Response<Submit> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                progressBar.setVisibility(View.GONE);
+
                 Log.d(TAG, "onResponse: Code " + response.code());
 
                 int code = response.code();
@@ -123,8 +126,9 @@ public class SubmissionActivity extends AppCompatActivity implements View.OnClic
             }
 
             @Override
-            public void onFailure(Call<Submit> call, Throwable throwable) {
+            public void onFailure(Call<Void> call, Throwable throwable) {
                 Log.d(TAG, "onFailure: Launching failure dialog");
+                Log.d(TAG, "onFailure: An error occurred: " + throwable.getMessage());
 
                 progressBar.setVisibility(View.GONE);
 
