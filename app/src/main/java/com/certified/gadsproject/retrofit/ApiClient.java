@@ -9,21 +9,31 @@ public class ApiClient {
 
         String baseUrl = "https://gadsapi.herokuapp.com/";
 
-        Retrofit retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+    }
 
-        return retrofit;
+    private static Retrofit getSubmitRetrofit() {
+
+        String submitUrl = "https://docs.google.com/forms/d/e/";
+
+        return new Retrofit.Builder()
+                .baseUrl(submitUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
     }
 
     public static GadsApi getHoursApi() {
-        GadsApi gadsHours = getRetrofit().create(GadsApi.class);
-        return gadsHours;
+        return getRetrofit().create(GadsApi.class);
     }
 
     public static GadsApi getIqApi() {
-        GadsApi gadsIq = getRetrofit().create(GadsApi.class);
-        return gadsIq;
+        return getRetrofit().create(GadsApi.class);
+    }
+
+    public static GadsApi submitProjectApi() {
+        return getSubmitRetrofit().create(GadsApi.class);
     }
 }

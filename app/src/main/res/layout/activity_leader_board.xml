@@ -36,6 +36,7 @@
                 android:padding="@dimen/appbar_padding"
                 android:text="@string/leaderboard"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textColor="#FFFFFF"
                 android:textSize="26sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

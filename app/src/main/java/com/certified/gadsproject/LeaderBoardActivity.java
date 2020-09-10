@@ -47,4 +47,9 @@ public class LeaderBoardActivity extends AppCompatActivity {
 
         btnSubmit.setOnClickListener(view -> startActivity(new Intent(LeaderBoardActivity.this, SubmissionActivity.class)));
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//    }
 }

@@ -82,7 +82,7 @@ public class LearningLeadersFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Hours>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "An error occured: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "An error occured: " + t.getMessage(), Toast.LENGTH_SHORT).show();
 //                Log.d(TAG, "onFailure: An error occured: " + t.getMessage());
             }
         });
